@@ -7,6 +7,19 @@
 # BlueJ files
 *.ctxt
 
+# User-specific stuff
+.idea/description.html
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/project-template.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
+.idea/workspace.xml
+
+# IntelliJ
+out/
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
