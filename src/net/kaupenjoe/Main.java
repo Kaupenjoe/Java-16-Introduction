@@ -2,25 +2,21 @@ package net.kaupenjoe;
 
 public class Main {
     public static void main(String[] args) {
-        /* BOOLEAN AND COMPARISON OPERATORS  */
+        /* BOOLEAN AND LOGICAL OPERATORS */
 
-        boolean likesTheLectures = true;
+        boolean watchedLectures = true;
         boolean askedQuestion = false;
+        boolean finishedAssignments = true;
+        boolean gaveReview = false;
 
-        System.out.println("You like these lectures " + likesTheLectures);
-        System.out.println("You have asked a Question in the Q&A " + askedQuestion);
+        // Logical Operators
+        // && (AND)
+        // || (OR)
+        // ! (NOT)
 
-        // COMPARISON OPERATORS
-        // > >= == != < <=
+        boolean finishedCourse = watchedLectures && finishedAssignments;
+        boolean isFan = finishedCourse && gaveReview;
+        boolean learning = watchedLectures || askedQuestion;
 
-        int yourScore = 98;
-
-        boolean passedClass = yourScore >= 50;
-        System.out.println("You passed: " + passedClass + " with " + yourScore + " points!");
-
-        boolean hasPerfectScore = yourScore == 100;
-        boolean failedClass = !passedClass;
-        // true -> false
-        // false -> true
     }
 }
