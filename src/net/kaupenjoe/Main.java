@@ -1,22 +1,34 @@
 package net.kaupenjoe;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        /* BOOLEAN AND LOGICAL OPERATORS */
+        /* IF AND ELSE STATEMENTS  */
 
-        boolean watchedLectures = true;
-        boolean askedQuestion = false;
-        boolean finishedAssignments = true;
-        boolean gaveReview = false;
+        int exam1 = 65;
+        int exam2 = 51;
 
-        // Logical Operators
-        // && (AND)
-        // || (OR)
-        // ! (NOT)
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Results for Exam 1: ");
+        exam1 = scanner.nextInt();
+        System.out.println("Results for Exam 2: ");
+        exam2 = scanner.nextInt();
 
-        boolean finishedCourse = watchedLectures && finishedAssignments;
-        boolean isFan = finishedCourse && gaveReview;
-        boolean learning = watchedLectures || askedQuestion;
+        if(exam1 >= 50) {
+            System.out.println("You have passed Exam 1");
+        } else {
+            System.out.println("You have FAILED Exam 1");
+        }
 
+        if(exam2 >= 50) {
+            System.out.println("You have passed Exam 2");
+        } else {
+            System.out.println("You have FAILED Exam 2");
+        }
+
+        if(exam1 >= 50 && exam2 >= 50) {
+            System.out.println("You have passed the CLASS");
+        }
     }
 }
