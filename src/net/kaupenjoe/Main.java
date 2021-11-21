@@ -2,34 +2,31 @@ package net.kaupenjoe;
 
 public class Main {
     public static void main(String[] args) {
-        /* Integers, Math and Arithmetic Operators  */
+        /* Assignment Operators  */
 
         int x = 100;
         int y = 20;
-        int result;
 
-        // Addition
-        result = x + y;
-        System.out.println(result);
+        x = x + y;
+        x += y;
+        System.out.println(x);
+        x -= y;
+        System.out.println(x);
+        x *= y;
+        System.out.println(x);
+        x /= y;
+        System.out.println(x);
+        x %= y;
+        System.out.println(x);
 
-        // Subtraction
-        result = x - y;
-        System.out.println(result);
+        // Incrementing
+        x = x + 1;
+        x += 1;
+        x++;
+        System.out.println(x);
 
-        // Multiplication
-        result = x * y;
-        System.out.println(result);
-
-        // Division
-        result = x / y;
-        System.out.println(result);
-
-        // Remainder
-        result = 20 % 2;
-        System.out.println(result);
-
-        // MATH METHODS
-        System.out.println(Math.max(x, y));
-        System.out.println(Math.abs(-500)); // |-500| = 500
+        // Decrementing
+        x--;
+        System.out.println(x);
     }
 }
