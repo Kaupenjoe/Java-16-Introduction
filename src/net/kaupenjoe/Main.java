@@ -1,108 +1,70 @@
 package net.kaupenjoe;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        /* ASSIGNMENT 2  */
+        /* ARRAYLIST, MAPS AND SETS (Collections) */
 
-        /*
-         * Re-create the Trivia Game from the first Assignment. This time with 5 Questions & 5 Answers!
-         *  Use Arrays to save the question and answers.
-         *  Create at least two methods that make the code more readable and easier to follow.
-         *    --> Hint: Duplicate code can usually be made into methods
-         * Use an endless while loop with if statements so the user can play until they don't want anymore.
-         *
-         */
-
-        String[] questions = new String[5];
+        String[] questions = new String[2];
         questions[0] = "How many States does the USA have?";
-        questions[1] = "What is the Capital of the United Kingdom?";
-        questions[2] = "What is the chemical symbol for Iron?";
-        questions[3] = "How High is Mount Everest? (Answer in km)";
-        questions[4] = "What is the Answer to Life, the Universe and Everything?";
+        questions[1] = "Capital of UK?";
 
-        String[] answers = new String[5];
-        answers[0] = "50";
-        answers[1] = "London";
-        answers[2] = "Fe";
-        answers[3] = "8848";
-        answers[4] = "42";
+        List<String> questionList = new ArrayList<>();
+        questionList.add("What Language is spoken in Germany?");
+        questionList.add("What is the Capital of Canada?");
+        questionList.add("In what Hemisphere is Brazil?");
 
-        Scanner scanner = new Scanner(System.in);
-        int points = 0;
+        // LISTS --> Add entries / elements dynamically
 
-        while (true) {
-            printTitle();
+        questionList.remove(1);
 
-            for(int i = 0; i < questions.length; i++) {
-                printQuestion(questions[i]);
-                String userAnswer = scanner.next();
+        System.out.println(questionList.size());
+        System.out.println(questionList.get(0));
 
-                if(isCorrectAnswer(userAnswer, answers[i])) {
-                    printYouHadCorrect();
-                    points = increasePointTotal(points);
-                    printCurrentPoints(points);
-                } else {
-                    printYouHadIncorrect();
-                    printTheCorrectAnswer(answers[i]);
-                }
-            }
+        // Wrapper Classes we can use instead of the primitive data types
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(420);
+        numbers.add(42);
 
-            printPointTotal(points);
-            printPlayAgain();
-            if(scanner.next().equals("Y")) {
-                points = 0;
-                continue;
-            } else {
-                break;
-            }
-        }
 
-        printGoodbye();
-    }
+        // MAPS
+        // Map contains a Key and a Value. Key maps to a certain Value
+        // Key-Value Pair
+        Map<String, String> countryToCapital = new HashMap<>();
+        countryToCapital.put("Germany", "Berlin");
+        countryToCapital.put("France", "Paris");
+        countryToCapital.put("Italy", "Rome");
+        countryToCapital.put("USA", "Washington DC");
 
-    public static void printTitle() {
-        System.out.println("KAUPEN-TRIVA");
-    }
+        System.out.println(countryToCapital.get("Germany"));
 
-    public static int increasePointTotal(int points) {
-        return points + 1;
-    }
+        System.out.println("Contains Key 'Germany'? " + countryToCapital.containsKey("Germany"));
+        System.out.println("Contains Value 'London'? " + countryToCapital.containsValue("London"));
 
-    public static void printCurrentPoints(int points) {
-        System.out.println("You currently have " + points + " Points!");
-    }
+        System.out.println(countryToCapital.remove("France"));
 
-    public static void printPlayAgain() {
-        System.out.println("Do you wanna play again? Y / N");
-    }
 
-    public static void printPointTotal(int points) {
-        System.out.println("You had " + points + " Points!");
-    }
+        // SETS
+        // A Set is a collection that contains no duplicates
+        Set<String> usernames = new HashSet<>();
+        usernames.add("Kaupenjoe");
+        usernames.add("Nanoattack");
 
-    public static void printGoodbye() {
-        System.out.println("Thank you very much for playing KAUPEN-TRIVIA");
-    }
+        System.out.println(usernames.add("FRV"));
+        System.out.println(usernames.add("FRV"));
 
-    public static void printQuestion(String question) {
-        System.out.println(question);
-    }
 
-    public static boolean isCorrectAnswer(String userAnswer, String realAnswer) {
-        return userAnswer.equals(realAnswer);
-    }
+        // ERRORS YOU MIGHT RUN INTO
+        // Uncomment for errors
 
-    public static void printYouHadCorrect() {
-        System.out.println("That was the correct Answer");
-    }
+        // IndexOutOfBoundException
+        // If you try and pass in an Index that does not exist for a list
+        // System.out.println(questionList.get(2));
 
-    public static void printYouHadIncorrect() {
-        System.out.println("That was the incorrect Answer!");
-    }
-
-    public static void printTheCorrectAnswer(String realAnswer) {
-        System.out.println("The Correct Answer was: " + realAnswer);
+        // Not an Exception, BUT "null"
+        // If you pass in a Key into a Map that does not exist
+        // Your return value is going to be null (might lead to other errors down the line!)
+        // System.out.println(countryToCapital.get("Malta"));
     }
 }
