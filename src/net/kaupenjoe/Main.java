@@ -1,45 +1,31 @@
 package net.kaupenjoe;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
-        /* LOOPS */
+        /* METHODS */
 
-        String[] questions = new String[3];
-        questions[0] = "How many States does the USA have?";
-        questions[1] = "What is the Capital of the United Kingdom";
-        questions[2] = "What is the chemical symbol for Iron";
+        String[] que = new String[3];
+        que[0] = "How many States does the USA have?";
+        que[1] = "What is the Capital of the United Kingdom";
+        que[2] = "What is the chemical symbol for Iron";
 
-        String[] answers = new String[3];
-        answers[0] = "50";
-        answers[1] = "London";
-        answers[2] = "Fe";
+        String[] ans = new String[3];
+        ans[0] = "50";
+        ans[1] = "London";
+        ans[2] = "Fe";
 
-        for(int i = 0; i < 100; i++) {
-            System.out.println(i);
-        }
+        outputQuestionsAndAnswers(que, ans);
+        System.out.println(sum(10, 12));
+    }
 
+    public static void outputQuestionsAndAnswers(String[] questions, String[] answers) {
         for(int i = 0; i < questions.length; i++) {
             System.out.println(questions[i]);
             System.out.println(answers[i]);
         }
+    }
 
-        // foreach
-        for(String question : questions) {
-            System.out.println(question);
-        }
-
-        Scanner scanner = new Scanner(System.in);
-
-        // While loop AND endless!
-        while(true) {
-            System.out.println("Do you want to continue?");
-            if(scanner.next().equals("yes")) {
-                continue;
-            } else {
-                break;
-            }
-        }
+    public static int sum(int x, int y) {
+        return x + y;
     }
 }
