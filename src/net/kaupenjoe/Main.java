@@ -1,31 +1,108 @@
 package net.kaupenjoe;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        /* METHODS */
+        /* ASSIGNMENT 2  */
 
-        String[] que = new String[3];
-        que[0] = "How many States does the USA have?";
-        que[1] = "What is the Capital of the United Kingdom";
-        que[2] = "What is the chemical symbol for Iron";
+        /*
+         * Re-create the Trivia Game from the first Assignment. This time with 5 Questions & 5 Answers!
+         *  Use Arrays to save the question and answers.
+         *  Create at least two methods that make the code more readable and easier to follow.
+         *    --> Hint: Duplicate code can usually be made into methods
+         * Use an endless while loop with if statements so the user can play until they don't want anymore.
+         *
+         */
 
-        String[] ans = new String[3];
-        ans[0] = "50";
-        ans[1] = "London";
-        ans[2] = "Fe";
+        String[] questions = new String[5];
+        questions[0] = "How many States does the USA have?";
+        questions[1] = "What is the Capital of the United Kingdom?";
+        questions[2] = "What is the chemical symbol for Iron?";
+        questions[3] = "How High is Mount Everest? (Answer in km)";
+        questions[4] = "What is the Answer to Life, the Universe and Everything?";
 
-        outputQuestionsAndAnswers(que, ans);
-        System.out.println(sum(10, 12));
-    }
+        String[] answers = new String[5];
+        answers[0] = "50";
+        answers[1] = "London";
+        answers[2] = "Fe";
+        answers[3] = "8848";
+        answers[4] = "42";
 
-    public static void outputQuestionsAndAnswers(String[] questions, String[] answers) {
-        for(int i = 0; i < questions.length; i++) {
-            System.out.println(questions[i]);
-            System.out.println(answers[i]);
+        Scanner scanner = new Scanner(System.in);
+        int points = 0;
+
+        while (true) {
+            printTitle();
+
+            for(int i = 0; i < questions.length; i++) {
+                printQuestion(questions[i]);
+                String userAnswer = scanner.next();
+
+                if(isCorrectAnswer(userAnswer, answers[i])) {
+                    printYouHadCorrect();
+                    points = increasePointTotal(points);
+                    printCurrentPoints(points);
+                } else {
+                    printYouHadIncorrect();
+                    printTheCorrectAnswer(answers[i]);
+                }
+            }
+
+            printPointTotal(points);
+            printPlayAgain();
+            if(scanner.next().equals("Y")) {
+                points = 0;
+                continue;
+            } else {
+                break;
+            }
         }
+
+        printGoodbye();
     }
 
-    public static int sum(int x, int y) {
-        return x + y;
+    public static void printTitle() {
+        System.out.println("KAUPEN-TRIVA");
+    }
+
+    public static int increasePointTotal(int points) {
+        return points + 1;
+    }
+
+    public static void printCurrentPoints(int points) {
+        System.out.println("You currently have " + points + " Points!");
+    }
+
+    public static void printPlayAgain() {
+        System.out.println("Do you wanna play again? Y / N");
+    }
+
+    public static void printPointTotal(int points) {
+        System.out.println("You had " + points + " Points!");
+    }
+
+    public static void printGoodbye() {
+        System.out.println("Thank you very much for playing KAUPEN-TRIVIA");
+    }
+
+    public static void printQuestion(String question) {
+        System.out.println(question);
+    }
+
+    public static boolean isCorrectAnswer(String userAnswer, String realAnswer) {
+        return userAnswer.equals(realAnswer);
+    }
+
+    public static void printYouHadCorrect() {
+        System.out.println("That was the correct Answer");
+    }
+
+    public static void printYouHadIncorrect() {
+        System.out.println("That was the incorrect Answer!");
+    }
+
+    public static void printTheCorrectAnswer(String realAnswer) {
+        System.out.println("The Correct Answer was: " + realAnswer);
     }
 }
