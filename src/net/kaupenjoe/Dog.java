@@ -3,12 +3,29 @@ package net.kaupenjoe;
 public class Dog {
     // Adding some fields
     public String picture;
-    public String name;
-    public int age;
+    protected String name;
+    private int age;
+    public static final int dogToHumanYearMultiplier = 7;
+
+    // public, protected, private
+    // static, final
+
+
+    public int getAge() {
+        return age;
+    }
 
     // Default Constructor
     public Dog() {
 
+    }
+
+    public void birthday() {
+        age++;
+    }
+
+    public int getAgeInHumanYears() {
+        return age * dogToHumanYearMultiplier;
     }
 
     public Dog(String picture, String name, int age) {
