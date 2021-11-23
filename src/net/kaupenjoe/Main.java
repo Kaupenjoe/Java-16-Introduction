@@ -1,17 +1,30 @@
 package net.kaupenjoe;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        /* ENUMS */
+        /* EXCEPTIONS AND TRY & CATCH */
 
-        Difficulty gameDifficulty = Difficulty.MEDIUM;
-        gameDifficulty = Difficulty.HARD;
+        Scanner scanner = new Scanner(System.in);
+        int i = scanner.nextInt();
 
-        if(gameDifficulty == Difficulty.EASY) {
+        // checkForZero(i);
 
+        try {
+            checkForZero(i);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("Finally");
         }
 
-        ToolTier tier = ToolTier.DIAMOND;
-        System.out.println(tier.getAttackMultiplier());
+        System.out.println("This happens always");
+    }
+
+    private static void checkForZero(int number) throws TestException {
+        if (number == 0) {
+            throw new TestException("NUMBER IS ZERO!");
+        }
     }
 }
